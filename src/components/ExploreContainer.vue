@@ -2,14 +2,17 @@
   <div id="container">
     <strong>{{ name }}</strong>
     <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-button>Knop</ion-button>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
+import { IonButton } from '@ionic/vue';
 
 export default defineComponent({
   name: 'ExploreContainer',
+  components: { IonButton },
   props: {
     name: String
   }
