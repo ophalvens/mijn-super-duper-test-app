@@ -58,6 +58,19 @@
             <ion-button expand="block" @click="verzendProduct()">Bevestig</ion-button>
           </ion-col>
         </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>Product: {{productNaam}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>Prijs: {{productPrijs}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>Categorienummer: {{productCategorie}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
       </ion-grid>
       
         
