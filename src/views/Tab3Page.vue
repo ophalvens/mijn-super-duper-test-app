@@ -12,7 +12,7 @@
         </ion-toolbar>
       </ion-header>
       
-      <ion-list>
+        <ion-list>
         
         <ion-item>
           <ion-label slot="start">Expecto experimento</ion-label>
@@ -20,7 +20,7 @@
         </ion-item>
         <ion-item>
           <ion-label>Darkmode</ion-label>
-          <ion-toggle slot="end" :checked="false" name="darkmode"></ion-toggle>
+          <ion-toggle slot="end" v-model="darkmode" @ionChange="toggleMode();"></ion-toggle>
 
         </ion-item>
 
@@ -40,6 +40,22 @@ import { colorWand } from 'ionicons/icons';
 export default defineComponent({
   name: 'Tab3Page',
   components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonList, IonItem, IonLabel, IonIcon, IonToggle },
+  data() {
+    // voor de 2-way binding, hier fixed geïnitialiseerd
+    return {
+      darkmode: false,
+    }
+    
+  },
+  methods: {
+    // functies (of methods) beschikbaar binnen deze vue component
+    toggleMode() {
+      // Doe iets met de darkmode true of false
+      // Hier loggen we gewoon de huidige (nieuwe) waarde
+      console.log(`darkmode : ${this.darkmode}`);
+    }
+  },
+
   setup() {
     return{
       colorWand
