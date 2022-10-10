@@ -9,7 +9,7 @@
       :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Tab 1</ion-title>
+          <ion-title size="large">Voeg een product toe</ion-title>
         </ion-toolbar>
       </ion-header>
     
@@ -27,22 +27,26 @@
               <ion-label position="floating">Product :</ion-label>
               <ion-input 
                 placeholder="Naam product" 
-                id="productNaam"
-                name="productNaam"
-                required="true"></ion-input>
+                v-model="productNaam"
+                required="true"
+                @ion-blur="logProduct()"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Prijs :</ion-label>
               <ion-input 
-                placeholder="10" 
-                id="productPrijs"
-                name="productPrijs"
+                placeholder="10.00" 
+                v-model="productPrijs"
                 type="number"
-                required="true"></ion-input>
+                required="true"
+                @ion-blur="logProduct()"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Categorie :</ion-label>
-              <ion-select interface="popover" placeholder="Selecteer categorie">
+              <ion-select interface="popover" 
+                  placeholder="Selecteer categorie"
+                  v-model="productCategorie"
+                  @ion-change="logProduct()">
+                <ion-select-option value="0" disabled="true">Welk type product?</ion-select-option>
                 <ion-select-option value="1">Fruit</ion-select-option>
                 <ion-select-option value="2">Groente</ion-select-option>
               </ion-select>
@@ -51,7 +55,7 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-button expand="block">Bevestig</ion-button>
+            <ion-button expand="block" @click="verzendProduct()">Bevestig</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -68,7 +72,29 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, 
 
 export default  defineComponent({
   name: 'Tab1Page',
-  components: {  IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton  }
+  components: {  IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton  },
+  data() {
+    return {
+      productNaam: '',
+      productPrijs: '',
+      productCategorie : '0',
+    }
+  },
+  methods: {
+    verzendProduct() {
+      // TODO: input controle indien nodig
+      
+      // TODO: verstuur naar de backend (API)
+
+      // log de waarden
+      this.logProduct();
+    },
+    logProduct(){
+      console.log(`naam: ${this.productNaam}, prijs: ${this.productPrijs}, categorie: ${this.productCategorie}`);
+    }
+
+  }
+  
 });
 </script>
 
