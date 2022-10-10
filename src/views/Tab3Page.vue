@@ -34,7 +34,7 @@
 
 <script>
 import { defineComponent } from 'vue';
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel, IonIcon, IonToggle } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel, IonIcon, IonToggle, onIonViewDidEnter, onIonViewDidLeave, onIonViewWillEnter, onIonViewWillLeave  } from '@ionic/vue';
 import { colorWand } from 'ionicons/icons';
 
 export default defineComponent({
@@ -57,6 +57,22 @@ export default defineComponent({
   },
 
   setup() {
+    // demo van een aantal event-hooks in Ionic 
+    onIonViewDidEnter(() => {
+      console.log('Home page did enter');
+    });
+
+    onIonViewDidLeave(() => {
+      console.log('Home page did leave');
+    });
+
+    onIonViewWillEnter(() => {
+      console.log('Home page will enter');
+    });
+
+    onIonViewWillLeave(() => {
+      console.log('Home page will leave');
+    });
     return{
       colorWand
     }
