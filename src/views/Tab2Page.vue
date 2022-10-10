@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Tab 2</ion-title>
+        <ion-title>Producten</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
@@ -11,19 +11,33 @@
           <ion-title size="large">Tab 2</ion-title>
         </ion-toolbar>
       </ion-header>
-      
-      <ExploreContainer name="Tab 2 page" />
+
+      <ion-list>
+        <ion-item>
+          <ion-item slot="start">€10,00</ion-item>
+          <ion-label>Banaan</ion-label>
+          <ion-item slot="end">Fruit</ion-item>
+        </ion-item>
+
+        <ion-item>
+          <ion-item slot="start">€100,00</ion-item>
+          <ion-label>Banaanhangwagen</ion-label>
+          <ion-item slot="end">Groente</ion-item>
+        </ion-item>
+
+      </ion-list>
+     
     </ion-content>
   </ion-page>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonLabel, IonItem } from '@ionic/vue';
+
 
 export default defineComponent({
   name: 'Tab2Page',
-  components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage }
+  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonList, IonLabel, IonItem }
 });
 </script>
