@@ -31,6 +31,8 @@ const app = createApp(App)
   .use(IonicVue)
   .use(router)
   .use(VueAxios, axios);
+// maak 'axios' beschikbaar op plaatsen waar we niet met this.axios kunnen werken
+app.provide('axios', app.config.globalProperties.axios); 
   
 router.isReady().then(() => {
   app.mount('#app');
