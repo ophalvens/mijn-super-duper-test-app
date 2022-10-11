@@ -58,19 +58,7 @@
             <ion-button expand="block" @click="verzendProduct()">Bevestig</ion-button>
           </ion-col>
         </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-item>
-              <ion-label>Product: {{productNaam}}</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Prijs: {{productPrijs}}</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Categorienummer: {{productCategorie}}</ion-label>
-            </ion-item>
-          </ion-col>
-        </ion-row>
+        
       </ion-grid>
       
         
@@ -92,7 +80,7 @@ const axios = inject('axios') // inject axios
 const postProduct = () => {
   axios
     .post('https://stevenop.be/wm/api/PRODUCTSadd.php',  {
-        PR_naam: productNaam.value , 
+        PR_naam: productNaam.value, 
         PR_CT_ID: productCategorie.value, 
         PR_prijs: productPrijs.value})
     .then(response => {
@@ -101,6 +89,15 @@ const postProduct = () => {
       if(response.status !== 200) {
         // er is iets fout gegaan, doe iets met deze info
         console.log(response.status);
+        //TODO: Meldt dat het niet gelukt is
+        // mogelijk met https://ionicframework.com/docs/api/toast
+      } else {
+        // maak de velden leeg
+        productNaam.value = '';
+        productPrijs.value = '0.0';
+        productCategorie.value = 0;
+        //TODO: Bevestig dat het product is toegevoegd
+        // mogelijk met https://ionicframework.com/docs/api/toast
       }
     }) ;
 }
