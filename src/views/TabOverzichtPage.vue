@@ -30,8 +30,6 @@ import { ref, inject } from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonLabel, IonItem, onIonViewWillEnter } from '@ionic/vue';
 
 const producten = ref([]);
-
-
 const axios = inject('axios') // inject axios
 
 const getProducten = () => {
