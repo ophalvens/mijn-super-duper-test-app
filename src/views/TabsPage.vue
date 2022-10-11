@@ -23,7 +23,6 @@
 </template>
 
 <script setup>
-//import { defineComponent } from 'vue';
 import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
 import { addCircle, construct, list } from 'ionicons/icons';
 
