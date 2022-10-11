@@ -13,10 +13,10 @@
       </ion-header>
 
       <ion-list>
-        <ion-item v-for="product in producten" :key="product.id">
-          <ion-item slot="start">€{{product.pr_prijs}}</ion-item>
-          <ion-label>{{product.pr_naam}}</ion-label>
-          <ion-item slot="end">{{product.ct_naam}}</ion-item>
+        <ion-item v-for="{id, pr_prijs, pr_naam, ct_naam} in producten" :key="id">
+          <ion-item slot="start">€{{pr_prijs}}</ion-item>
+          <ion-label>{{pr_naam}}</ion-label>
+          <ion-item slot="end">{{ct_naam}}</ion-item>
         </ion-item>
 
       </ion-list>
