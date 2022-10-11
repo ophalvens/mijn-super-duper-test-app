@@ -31,13 +31,7 @@
   </ion-page>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
+<script setup>
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonLabel, IonItem } from '@ionic/vue';
 
-
-export default defineComponent({
-  name: 'Tab2Page',
-  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonList, IonLabel, IonItem }
-});
 </script>

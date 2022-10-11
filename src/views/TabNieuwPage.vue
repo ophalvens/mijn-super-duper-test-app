@@ -79,22 +79,15 @@
   </ion-page>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton } from '@ionic/vue';
 
-export default  defineComponent({
-  name: 'Tab1Page',
-  components: {  IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton  },
-  data() {
-    return {
-      productNaam: '',
-      productPrijs: '',
-      productCategorie : '0',
-    }
-  },
-  methods: {
-    verzendProduct() {
+const productNaam = ref(''),
+    productPrijs = ref('0.0'),
+    productCategorie = ref('0');
+
+const verzendProduct = () => {
       // TODO: input controle indien nodig
       
       // TODO: verstuur naar de backend (API)
@@ -102,13 +95,10 @@ export default  defineComponent({
       // log de waarden
       this.logProduct();
     },
-    logProduct(){
-      console.log(`naam: ${this.productNaam}, prijs: ${this.productPrijs}, categorie: ${this.productCategorie}`);
-    }
+    logProduct = () =>{
+      console.log(`naam: ${productNaam.value}, prijs: ${productPrijs.value}, categorie: ${productCategorie.value}`);
+    };
 
-  }
-  
-});
 </script>
 
 

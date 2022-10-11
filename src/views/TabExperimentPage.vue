@@ -32,53 +32,38 @@
   </ion-page>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel, IonIcon, IonToggle, onIonViewDidEnter, onIonViewDidLeave, onIonViewWillEnter, onIonViewWillLeave  } from '@ionic/vue';
 import { colorWand } from 'ionicons/icons';
 
-export default defineComponent({
-  name: 'Tab3Page',
-  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonList, IonItem, IonLabel, IonIcon, IonToggle },
-  data() {
-    // voor de 2-way binding, hier fixed geïnitialiseerd
-    return {
-      darkmode: false,
-    }
-    
-  },
-  methods: {
-    // functies (of methods) beschikbaar binnen deze vue component
-    toggleMode() {
-      // Doe iets met de darkmode true of false
-      // Hier loggen we gewoon de huidige (nieuwe) waarde
-      console.log(`darkmode : ${this.darkmode}`);
-    }
-  },
+const darkmode = ref( false );
 
-  setup() {
-    // demo van een aantal event-hooks in Ionic 
-    onIonViewDidEnter(() => {
-      console.log('Home page did enter');
-    });
+const toggleMode = () => {
+  // Doe iets met de darkmode true of false
+  // Hier loggen we gewoon de huidige (nieuwe) waarde
 
-    onIonViewDidLeave(() => {
-      console.log('Home page did leave');
-    });
+  // om de waarde uit een ref te halen moet je die met .value ophalen
+  console.log(`darkmode : ${darkmode.value}`);
+}
 
-    onIonViewWillEnter(() => {
-      console.log('Home page will enter');
-    });
-
-    onIonViewWillLeave(() => {
-      console.log('Home page will leave');
-    });
-    return{
-      colorWand
-    }
-    
-  }
+// demo van een aantal event-hooks in Ionic 
+onIonViewDidEnter(() => {
+  console.log('Home page did enter');
 });
+
+onIonViewDidLeave(() => {
+  console.log('Home page did leave');
+});
+
+onIonViewWillEnter(() => {
+  console.log('Home page will enter');
+});
+
+onIonViewWillLeave(() => {
+  console.log('Home page will leave');
+});
+
 </script>
 
 <style scoped>
