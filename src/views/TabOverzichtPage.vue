@@ -13,16 +13,10 @@
       </ion-header>
 
       <ion-list>
-        <ion-item>
-          <ion-item slot="start">€10,00</ion-item>
-          <ion-label>Banaan</ion-label>
-          <ion-item slot="end">Fruit</ion-item>
-        </ion-item>
-
-        <ion-item>
-          <ion-item slot="start">€100,00</ion-item>
-          <ion-label>Banaanhangwagen</ion-label>
-          <ion-item slot="end">Groente</ion-item>
+        <ion-item v-for="product in producten" :key="product.id">
+          <ion-item slot="start">€{{product.pr_prijs}}</ion-item>
+          <ion-label>{{product.pr_naam}}</ion-label>
+          <ion-item slot="end">{{product.ct_naam}}</ion-item>
         </ion-item>
 
       </ion-list>
@@ -32,6 +26,13 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonLabel, IonItem } from '@ionic/vue';
+
+const producten = ref([
+  {pr_id:1, pr_naam: "Banaan", pr_prijs: 1.50, ct_naam: "fruit", pr_ct_id: 1},
+  {pr_id:2, pr_naam: "Spruitjes", pr_prijs: 3.50, ct_naam: "groente", pr_ct_id: 2},
+  {pr_id:3, pr_naam: "Sinaasappel", pr_prijs: 1.00, ct_naam: "fruit", pr_ct_id: 1}
+]);
 
 </script>
