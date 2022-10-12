@@ -49,7 +49,7 @@ const getProducten = () => {
         console.log('response.data.data is not ok');
         return;
       }
-      console.log(response.date);
+      console.log(response.data);
 
       // We gaan eerst de lijst leeg maken, een beetje ruw, maar werkt op dit moment
       producten.value = [];
