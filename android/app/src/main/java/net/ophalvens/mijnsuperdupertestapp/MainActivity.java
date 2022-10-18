@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package net.ophalvens.mijnsuperdupertestapp;
 
 import com.getcapacitor.BridgeActivity;
 
