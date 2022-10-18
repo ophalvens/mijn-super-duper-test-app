@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "mijn-super-duper-test-app @ d4361fe",
+			"uri": "gitlens://7b22726566223a2264343336316665383138393939356263373363653736366133373439636630636165393836663365222c227265706f50617468223a22633a2f6465762f70726f6a656374656e2f323232332f6d696a6e2d73757065722d64757065722d746573742d617070227d/c:/dev/projecten/2223/mijn-super-duper-test-app?{\"ref\":\"d4361fe\"}"
+		}
+	],
+	"settings": {
+		"ionic.previewInEditor": false,
+		"ionic.externalAddress": true
+	}
+}
