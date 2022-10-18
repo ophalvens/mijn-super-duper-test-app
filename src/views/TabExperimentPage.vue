@@ -24,6 +24,11 @@
 
         </ion-item>
 
+        <ion-item>
+          <ion-label>lat : {{ coords.latitude }} | lon :  {{ coords.longitude }}</ion-label>
+          <ion-button @click="getLocation">Haal locatie op</ion-button>
+        </ion-item>
+
         
       </ion-list>
       
@@ -34,18 +39,27 @@
 
 <script setup>
 import { ref } from 'vue';
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel, IonIcon, IonToggle, onIonViewDidEnter, onIonViewDidLeave, onIonViewWillEnter, onIonViewWillLeave  } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel, IonIcon, IonToggle, onIonViewDidEnter, onIonViewDidLeave, onIonViewWillEnter, onIonViewWillLeave, IonButton  } from '@ionic/vue';
 import { colorWand } from 'ionicons/icons';
+import { Geolocation } from '@capacitor/geolocation';
+
+const coords = ref({latitude:4,longitude:50});
+
+const getLocation = async () => {
+  // gaal de locatie op;
+  let coordinates = await Geolocation.getCurrentPosition();
+  coords.value.latitude = coordinates.coords.latitude;
+  coords.value.longitude = coordinates.coords.longitude;
+};
 
 const darkmode = ref( false );
-
 const toggleMode = () => {
   // Doe iets met de darkmode true of false
   // Hier loggen we gewoon de huidige (nieuwe) waarde
 
   // om de waarde uit een ref te halen moet je die met .value ophalen
   console.log(`darkmode : ${darkmode.value}`);
-}
+};
 
 // demo van een aantal event-hooks in Ionic 
 onIonViewDidEnter(() => {
